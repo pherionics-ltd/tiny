@@ -53,7 +53,6 @@ mkdir temp
 cd temp
 git clone https://github.com/pherionics-ltd/tiny.git
 cd tiny
-read -p "INFO: Installing tiny to /usr/bin/tiny. You may be prompted for your password. Press [ENTER] to continue."
 sudo mv ./tiny /usr/bin/tiny
 sudo chmod +x /usr/bin/tiny
 sudo mv ./modules ../../modules
