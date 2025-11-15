@@ -28,7 +28,7 @@ def calculate_file_hash(filename, algorithm='sha256'):
 if __name__ == "__main__":
     # Check if exactly one argument (the file path) was provided
     if len(sys.argv) != 2:
-        print("Usage: python tiny_hash.py <file_path>")
+        print("Usage: tiny hash <file_path>")
         sys.exit(1)
     
     file_path = sys.argv[1]

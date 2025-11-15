@@ -52,7 +52,7 @@ def tiny_ping(host, count=4):
 if __name__ == "__main__":
     # Check if a hostname argument was provided
     if len(sys.argv) < 2:
-        print("Usage: tiny tiny_ping <hostname_or_ip> [optional_ping_count]")
+        print("Usage: tiny ping <hostname_or_ip> [optional_ping_count]")
         sys.exit(1)
 
     host_target = sys.argv
