@@ -42,7 +42,9 @@ else
     echo "ERR: pip not installed. If you are using the python binaries including with your operating system, try reinstalling/updating python with your package manager."
     exit
 fi
-
+# clean if updating
+rm -rf ~/.tiny
+sudo rm -rf /usr/bin/tiny
 #install dependencies
 pip install psutil --break-system-packages
 # make installation directory
@@ -56,5 +58,3 @@ cd tiny
 sudo mv ./tiny /usr/bin/tiny
 sudo chmod +x /usr/bin/tiny
 sudo mv ./modules ../../modules
-
-# clone repository
