@@ -1,1 +1,38 @@
+#!/bin/bash
 
+# Define the base directory for tiny modules
+TINY_HOME="${HOME}/.tiny/modules"
+
+# Check if a utility name was provided
+if [ "$#" -eq 0 ]; then
+    echo "Usage: tiny <utility> [args]"
+    echo "Example: tiny hash my_file.txt"
+    exit 1
+fi
+
+# The first argument is the utility name (e.g., tiny_hash)
+UTILITY_NAME="$1"
+# The path to the potential script file (assuming it's a Python script with a .py extension)
+SCRIPT_PATH="${TINY_HOME}/${UTILITY_NAME}.py"
+
+# Shift arguments so that $1, $2, etc., now refer to the arguments for the utility script
+shift 
+
+# Check if the script file exists
+if [ ! -f "$SCRIPT_PATH" ]; then
+    echo "Error: Utility '$UTILITY_NAME' not found in $TINY_HOME"
+    echo "Check if the file '$SCRIPT_PATH' exists."
+    exit 1
+fi
+
+# Execute the Python script with all remaining arguments
+# The $@ variable expands to all remaining command-line arguments
+echo "Running utility: $UTILITY_NAME"
+python3 "$SCRIPT_PATH" "$@"
+
+# Capture the exit status of the python script
+EXIT_STATUS=$?
+
+if [ $EXIT_STATUS -ne 0 ]; then
+    echo "Utility '$UTILITY_NAME' finished with an error (Exit code $EXIT_STATUS)."
+fi

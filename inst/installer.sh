@@ -43,6 +43,8 @@ else
     exit
 fi
 
+#install dependencies
+pip install psutil --break-system-packages
 # make installation directory
 cd ~
 mkdir .tiny
