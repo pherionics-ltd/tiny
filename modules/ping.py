@@ -19,7 +19,7 @@ def tiny_ping(host, count=4):
         # Regex pattern for Linux/macOS output: "rtt min/avg/max/mdev = 1.234/5.678/9.012/3.456 ms"
         avg_pattern = re.compile(r"min/avg/max/mdev = [\d.]+/([\d.]+)/[\d.]+/[.d]+ ms")
 
-    print(f"Pinging {host} with command: {' '.join(command)}")
+    print(f"Pinging {host} with command: {' '.join(str(command))}")
 
     try:
         # Run the command and capture the output
